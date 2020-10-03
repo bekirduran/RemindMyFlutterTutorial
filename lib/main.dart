@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'konular/checkbox_radio_switch_usage.dart';
+import 'konular/dropdownbutton_usage.dart';
 import 'konular/textfield_calismalari.dart';
 
 void main() => runApp(MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => MainPage(),
         '/GotTextField': (context) => TextFieldCalismalari(),
         '/GoCheckBoxAndRadio': (context) => CheckBoxRadioAndSwitch(),
+        '/GoDropDownButton': (context) => DropDownButtonTutorial(),
       },
     );
   }
@@ -34,11 +36,13 @@ class MainPage extends StatelessWidget {
         children: <Widget>[
           buildTextFieldUsage(context),
           buildCheckBoxUsage(context),
+          buildDropDownButtonUsage(context),
         ],
       )),
     );
   }
 
+  //buildCheckBoxUsage button
   Widget buildCheckBoxUsage(BuildContext context) {
     return Container(
       child: FlatButton(
@@ -52,6 +56,7 @@ class MainPage extends StatelessWidget {
     );
   }
 
+  //buildTextFieldUsage button
   Widget buildTextFieldUsage(BuildContext context) {
     return Container(
       child: FlatButton(
@@ -59,6 +64,20 @@ class MainPage extends StatelessWidget {
         color: Colors.cyan.shade300,
         child: Text(
           "TextField Çalışmaları",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+
+  //buildDropDownButtonUsage button
+  Widget buildDropDownButtonUsage(BuildContext context) {
+    return Container(
+      child: FlatButton(
+        onPressed: () => Navigator.pushNamed(context, '/GoDropDownButton'),
+        color: Colors.pink.shade200,
+        child: Text(
+          "DropDownButtonTutorial",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
