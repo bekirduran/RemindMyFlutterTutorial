@@ -10,6 +10,7 @@ class _CheckBoxRadioAndSwitchState extends State<CheckBoxRadioAndSwitch> {
   bool checkBoxStatus = false;
   bool checkBox2Status = false;
   bool switchStatus = false;
+  double sliderStatus = 18;
   String radioSelected = "";
 
   @override
@@ -26,24 +27,45 @@ class _CheckBoxRadioAndSwitchState extends State<CheckBoxRadioAndSwitch> {
           padding: EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
-              Text("Please answer the following question."),
-              buildCheckBoxUsage(),
-              buildCheckBoxUsage2(),
-              Text("Please select the your phone OS."),
-              buildRadioListTile(),
-              buildRadioListTile2(),
+              Container(color: Colors.teal.shade200,child: Text("Please select your age : ${sliderStatus.floor()}",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              Container(color:Colors.teal.shade100,child: buildSlider()),
+
+              Container(color: Colors.green.shade200,child: Text("Please select the following question.",style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+              Container(color: Colors.green.shade100,child: buildCheckBoxUsage()),
+              Container(color: Colors.green.shade100,child: buildCheckBoxUsage2()),
+
+              Container(color: Colors.lime.shade200,child: Text("Please select the your phone OS.",style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+              Container(color: Colors.lime.shade100,child: buildRadioListTile()),
+              Container(color: Colors.lime.shade100,child: buildRadioListTile2()),
+              SizedBox(height: 75,),
               buildSwitchlistTile()
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.save),
-          onPressed: ()=> print("Saved"),
-        ),
+        floatingActionButton: Visibility(
+          visible: switchStatus?true:false, // if approve the survey then this button will be visible
+          child: FloatingActionButton(
+            child: Icon(Icons.save),
+            onPressed: _surveyRegister,
+            elevation: 5,
+
+          ),
+        )
       ),
     );
   }
 
+// floatingActionButton onPressed func.
+  void _surveyRegister(){
+
+    print("1-) User age is : ${sliderStatus.floor().toString()}\n"
+        "2-) Is user student: ${checkBoxStatus?"Yes":"No"}\n"
+        "3-) Is user like computer games : ${checkBox2Status? "Yes" : "No"}\n"
+        "4-) User is using phone OS : $radioSelected \n"
+        "5-) Survey is  : ${switchStatus?"APPROVED":"REJECT"}  " );
+  }
+
+  // ------------------------------------- CheckBox builder method
   Widget buildCheckBoxUsage() {
     return CheckboxListTile(
       value: checkBoxStatus,
@@ -63,6 +85,8 @@ class _CheckBoxRadioAndSwitchState extends State<CheckBoxRadioAndSwitch> {
     );
   }
 
+
+  // -------------------------------------CheckBox builder method
   Widget buildCheckBoxUsage2() {
     return CheckboxListTile(
       value: checkBox2Status,
@@ -82,6 +106,9 @@ class _CheckBoxRadioAndSwitchState extends State<CheckBoxRadioAndSwitch> {
     );
   }
 
+
+  //------------------------------------- Radio Button builder method
+
   Widget buildRadioListTile() {
     return RadioListTile<String>(
       value: "iOS",
@@ -98,6 +125,8 @@ class _CheckBoxRadioAndSwitchState extends State<CheckBoxRadioAndSwitch> {
     );
   }
 
+  // -------------------------------------Radio Button builder method
+
   Widget buildRadioListTile2() {
     return RadioListTile<String>(
       value: "Android",
@@ -113,7 +142,9 @@ class _CheckBoxRadioAndSwitchState extends State<CheckBoxRadioAndSwitch> {
       secondary: Icon(Icons.phone_android, color: Colors.red.shade200,),
     );
   }
-  
+
+  //------------------------------------- Switch builder method
+
   Widget buildSwitchlistTile(){
     return SwitchListTile(value: switchStatus, onChanged: (newValue){
       setState(() {
@@ -123,6 +154,23 @@ class _CheckBoxRadioAndSwitchState extends State<CheckBoxRadioAndSwitch> {
     },
       title: Text("I approve the survey"),
       secondary: Icon(Icons.content_paste),
+    );
+  }
+
+
+  //------------------------------------- Slider builder method
+
+  Widget buildSlider(){
+    return Slider(value: sliderStatus, onChanged:(newSliderStatus){
+      setState(() {
+        sliderStatus = newSliderStatus;
+        print("Age is : $sliderStatus");
+      });
+    },
+      min: 18,
+      max: 65,
+      divisions: 47,
+      label: sliderStatus.floor().toString(),
     );
   }
   
