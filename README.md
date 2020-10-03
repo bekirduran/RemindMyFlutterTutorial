@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
  # Screen Images About TextField 
-<img src=/ScreenShot/ss_textfield.png width="400" height="700">
+<img src=/ScreenShots/ss_textfield.png width="400" height="700">
 
  # Screen Images About CheckBox, Slider, Radio Button and Switch  
-<img src=/ScreenShot/ss_checboxsliderradio.png width="400" height="700">
+<img src=/ScreenShots/ss_checboxsliderradio.png width="400" height="700">
