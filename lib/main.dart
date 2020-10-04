@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'konular/checkbox_radio_switch_usage.dart';
 import 'konular/dropdownbutton_usage.dart';
 import 'konular/textfield_calismalari.dart';
+import 'konular/time_picker_usage.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         '/GotTextField': (context) => TextFieldCalismalari(),
         '/GoCheckBoxAndRadio': (context) => CheckBoxRadioAndSwitch(),
         '/GoDropDownButton': (context) => DropDownButtonTutorial(),
+        '/GoDateTime' : (context) => DateTimePickerUsage(),
       },
     );
   }
@@ -37,6 +39,7 @@ class MainPage extends StatelessWidget {
           buildTextFieldUsage(context),
           buildCheckBoxUsage(context),
           buildDropDownButtonUsage(context),
+          buildTimeDateUsage(context)
         ],
       )),
     );
@@ -83,4 +86,17 @@ class MainPage extends StatelessWidget {
       ),
     );
   }
+
+ Widget buildTimeDateUsage(BuildContext context) {
+   return Container(
+     child: FlatButton(
+       onPressed: () => Navigator.pushNamed(context, '/GoDateTime'),
+       color: Colors.amber.shade800,
+       child: Text(
+         "Date and Time Picker",
+         style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+       ),
+     ),
+   );
+ }
 }
