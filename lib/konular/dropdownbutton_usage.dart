@@ -13,7 +13,6 @@ class _DropDownButtonTutorialState extends State<DropDownButtonTutorial> {
   String selectedFreeTime = "Reading Book";
   String selectedFilmCat = "Action";
   String selectedCountry = "Switzerland";
-
   @override
   Widget build(BuildContext context) {
     return Theme(
