@@ -25,5 +25,5 @@ samples, guidance on mobile development, and a full API reference.
  # Screen Images About DrowDownButton 
 <img src=/ScreenShots/ss_dropdownbutton.png width="400" height="700">
 
-# Screen Images About DrowDownButton 
+# Screen Images About DateTime Picker 
 <img src=/ScreenShots/ss_datetimepicker.png width="400" height="700">
