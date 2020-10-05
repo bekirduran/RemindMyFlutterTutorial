@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'konular/checkbox_radio_switch_usage.dart';
 import 'konular/dropdownbutton_usage.dart';
+import 'konular/stepper_usage.dart';
 import 'konular/textfield_calismalari.dart';
 import 'konular/time_picker_usage.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/GoCheckBoxAndRadio': (context) => CheckBoxRadioAndSwitch(),
         '/GoDropDownButton': (context) => DropDownButtonTutorial(),
         '/GoDateTime' : (context) => DateTimePickerUsage(),
+        '/GoStepper' :(context) => StepperUsage(),
       },
     );
   }
@@ -39,7 +41,8 @@ class MainPage extends StatelessWidget {
           buildTextFieldUsage(context),
           buildCheckBoxUsage(context),
           buildDropDownButtonUsage(context),
-          buildTimeDateUsage(context)
+          buildTimeDateUsage(context),
+          buildStepperUsage(context),
         ],
       )),
     );
@@ -99,4 +102,19 @@ class MainPage extends StatelessWidget {
      ),
    );
  }
+
+  Widget buildStepperUsage(BuildContext context) {
+    return Container(
+      child: FlatButton(
+        onPressed: () => Navigator.pushNamed(context, '/GoStepper'),
+        color: Colors.teal,
+        child: Text(
+          "Stepper Usage Tutorial",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+
+
 }
