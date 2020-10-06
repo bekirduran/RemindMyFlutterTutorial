@@ -28,7 +28,7 @@ samples, guidance on mobile development, and a full API reference.
 # Screen Images About DateTime Picker 
 <img src=/ScreenShots/ss_datetimepicker.png width="400" height="700">
 
-# Screen Images About DateTime Picker 
+# Screen Images About Stepper 
 <img src=/ScreenShots/ss_stepperusage.png width="400" height="700">
 
 
